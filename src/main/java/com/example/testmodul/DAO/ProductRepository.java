@@ -20,7 +20,6 @@ public class ProductRepository {
     private final String SELECT_PRODUCT_BY_ID = "select * from product where id = ?";
     private final String UPDATE_PRODUCT = "update product set name = ?, price = ?, quantity = ?, color = ?" +
             ", description = ?,category_id = ? where id = ?";
-    private final String SELECT_PRODUCT_BY_CATEGORY = "select * from product where product.category_id = ?";
     private final String SELECT_SEARCH = "select * from product where name like ?";
 
 
@@ -131,6 +130,7 @@ public class ProductRepository {
         }
         return products;
     }
+
 
 
 

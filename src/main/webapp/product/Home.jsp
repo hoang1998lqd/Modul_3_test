@@ -10,13 +10,25 @@
 <html>
 <head>
     <title>Home</title>
+    <style>
+        th{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<table  border="1" style="text-align: center"  >
-<a href="CreateProduct.jsp">Tạo mới sản phẩm</a>
+<div class="box">
+    <form action="/product?action=search" method="post">
+        <input class="input" name="search" placeholder="Tìm kiếm">
+        <button class="search-btn" type="submit" >Search</button>
+    </form>
+</div>
+<br>
+<table  border="1" style="text-align: center; border: 2px solid red"  >
+<a href="/product?action=createGet">Tạo mới sản phẩm</a>
 <tr>
     <th style="width: 30px; text-align: center">Mã sản phẩm</th>
     <th style="width: 250px">Tên sản phẩm</th>
@@ -34,8 +46,8 @@
         <td>${p.getQuantity()}</td>
         <td>${p.getColor()}</td>
         <td>${p.getCategory().getName()}</td>
-        <td><button><a href="/?action=edit&id=${p.getId()}">Edit</a></button></td>
-        <td><button><a href="/?action=delete&id=${p.getId()}">Delete</a></button></td>
+        <td><button><a href="/product?action=edit&id=${p.getId()}">Edit</a></button></td>
+        <td><button><a href="/product?action=delete&id=${p.getId()}">Delete</a></button></td>
     </tr>
 </c:forEach>
 </table>
